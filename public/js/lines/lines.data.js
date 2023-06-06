@@ -17,6 +17,7 @@ const DEFS = `
         </linearGradient>
     </defs>
 ` 
+const LINE_SPEED = 2000;
 
 export const lines_right = [
     {
@@ -111,6 +112,7 @@ export const lines_right = [
         defs: DEFS,
         gradient: true,
         color: GRADIENT_COLOR_LIGHT, 
-        scale: LINE_SCALE
+        scale: LINE_SCALE,
+        speed: LINE_SPEED
     }
 })
