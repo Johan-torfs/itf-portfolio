@@ -1,8 +1,22 @@
 const LINE_RADIUS = 6;
 const LINE_WIDTH = 2;
 const LINE_WIDTH_LG = 3;
-const LINE_COLOR = "#00E5FF";
+const GRADIENT_COLOR_DARK = "rgb(0,150,255)";
+const GRADIENT_COLOR_LIGHT = "rgb(0,229,255)";
 const LINE_SCALE = 1.5;
+const DEFS = `
+    <defs>
+        <linearGradient id="gradient-line" x1="0%" y1="100%" x2="0%" y2="0%" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color=${GRADIENT_COLOR_LIGHT} />
+            <stop offset="50%" stop-color=${GRADIENT_COLOR_DARK} />
+            <stop offset="100%" stop-color=${GRADIENT_COLOR_LIGHT} />
+        </linearGradient>
+        <linearGradient id="gradient-circle" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color=${GRADIENT_COLOR_LIGHT} />
+            <stop offset="100%" stop-color=${GRADIENT_COLOR_DARK} />
+        </linearGradient>
+    </defs>
+` 
 
 export const lines_right = [
     {
@@ -94,7 +108,9 @@ export const lines_right = [
     return {
         ...line, 
         radius: LINE_RADIUS, 
-        color: LINE_COLOR, 
+        defs: DEFS,
+        gradient: true,
+        color: GRADIENT_COLOR_LIGHT, 
         scale: LINE_SCALE
     }
 })

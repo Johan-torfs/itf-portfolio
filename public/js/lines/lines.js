@@ -3,6 +3,8 @@ export function setupLines(element, lines) {
         let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         svg.setAttribute("width", element.offsetWidth);
 
+        line.defs ? svg.innerHTML = line.defs : svg.innerHTML = "";
+
         let svgScale = (line.scale || 1);
 
         let lineSegments = line.line;
@@ -19,7 +21,7 @@ export function setupLines(element, lines) {
             lineElement.setAttribute("y1", lineSegments[i][1] * svgScale);
             lineElement.setAttribute("x2", lineSegments[i + 1][0] * svgScale);
             lineElement.setAttribute("y2", lineSegments[i + 1][1] * svgScale);
-            lineElement.setAttribute("stroke", line.color);
+            lineElement.setAttribute("stroke", line.gradient ? "url(#gradient-line)" : line.color);
             lineElement.setAttribute("stroke-width", line.stroke_width);
             svg.appendChild(lineElement);
 
@@ -30,7 +32,7 @@ export function setupLines(element, lines) {
         circleElement.setAttribute("cx", lineSegments[length - 1][0] * svgScale);
         circleElement.setAttribute("cy", lineSegments[length - 1][1] * svgScale);
         circleElement.setAttribute("r", line.radius * svgScale);
-        circleElement.setAttribute("fill", line.color);
+        circleElement.setAttribute("fill", line.gradient ? "url(#gradient-circle)" : line.color);
         svg.appendChild(circleElement);
 
         svg.setAttribute("id", element.id + "_line_" + index);
