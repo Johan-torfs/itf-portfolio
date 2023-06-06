@@ -17,18 +17,20 @@ const DEFS = `
         </linearGradient>
     </defs>
 ` 
-const LINE_SPEED = 2000;
+const LINE_SPEED = 1000;
 
 export const lines_right = [
     {
         "stroke_width": LINE_WIDTH_LG,
         "start": [0, 0], // start position of svg element (x, y) in percentage of parent element
-        "line": [[0, 60], [50, 10], [150, 10]] // points of line segments (x, y) in pixels
+        "line": [[0, 60], [50, 10], [150, 10]], // points of line segments (x, y) in pixels
+        "delay": 500 // delay in ms before drawing line
     },
     {
         "stroke_width": LINE_WIDTH_LG,
         "start": [0, 0],
-        "line": [[0, 60], [10, 50], [100, 50], [120, 30], [180, 30], [190, 20]]
+        "line": [[0, 60], [10, 50], [100, 50], [120, 30], [180, 30], [190, 20]],
+        "delay": 400
     },
     {
         "stroke_width": LINE_WIDTH,
@@ -43,7 +45,8 @@ export const lines_right = [
     {
         "stroke_width": LINE_WIDTH,
         "start": [0, 60],
-        "line": [[0, 60], [60, 60], [80, 40], [110, 40]]
+        "line": [[0, 60], [60, 60], [80, 40], [110, 40]],
+        "delay": 200
     },
     {
         "stroke_width": LINE_WIDTH,
@@ -58,7 +61,8 @@ export const lines_right = [
     {
         "stroke_width": LINE_WIDTH,
         "start": [0, 140],
-        "line": [[0, 60], [20, 60], [60, 20], [200, 20]]
+        "line": [[0, 60], [20, 60], [60, 20], [200, 20]],
+        "delay": 300
     },
     {
         "stroke_width": LINE_WIDTH,
@@ -68,7 +72,8 @@ export const lines_right = [
     {
         "stroke_width": LINE_WIDTH_LG,
         "start": [0, 190],
-        "line": [[0, 80], [50, 80], [110, 20], [160, 20]]
+        "line": [[0, 80], [50, 80], [110, 20], [160, 20]],
+        "delay": 800
     },
     {
         "stroke_width": LINE_WIDTH_LG,
@@ -78,7 +83,8 @@ export const lines_right = [
     {
         "stroke_width": LINE_WIDTH,
         "start": [0, 230],
-        "line": [[0, 60], [70, 60], [120, 10], [230, 10]]
+        "line": [[0, 60], [70, 60], [120, 10], [230, 10]],
+        "delay": 800
     },
     {
         "stroke_width": LINE_WIDTH,
