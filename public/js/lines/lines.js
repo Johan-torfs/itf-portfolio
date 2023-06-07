@@ -144,6 +144,8 @@ export function blinkLine(element, index) {
             return;
         }
 
+        let circleElement = svg.getElementsByTagName("circle")[0];
+
         let pathElement = svg.getElementsByTagName("path")[0];
         let startX = pathElement.getAttribute("d").split("M")[1].split(" ")[0];
         let startY = pathElement.getAttribute("d").split("M")[1].split(" ")[1];
@@ -157,7 +159,7 @@ export function blinkLine(element, index) {
         svg.appendChild(blinkElement);
 
         moveBlinkElement(blinkElement, pathElement).then(() => {
-            blinkCircle(blinkElement, pathElement).then(() => {
+            blinkCircle(blinkElement, circleElement).then(() => {
                 resolve();
             }).finally(() => {
                 svg.removeChild(blinkElement);
@@ -229,11 +231,11 @@ function lerpBlinkElement(blinkElement, startX, startY, x, y, time) {
     return promise;
 }
 
-function blinkCircle(blinkElement, pathElement) {
+function blinkCircle(blinkElement, circleElement) {
     var promise = new Promise(async (resolve, reject) => {
         let time = 200;
         let startR = parseFloat(blinkElement.getAttribute("r"))
-        let r = pathElement.getAttribute("stroke-width") * 6;
+        let r = parseFloat(circleElement.getAttribute("r")) * 2;
 
         for (let index = 0; index < 2; index++) {
             let completed = false;
