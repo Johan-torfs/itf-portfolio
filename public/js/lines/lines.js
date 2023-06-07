@@ -3,7 +3,11 @@ import { delay } from "../common";
 const INTERVALS_LINE = 100;
 const INTERVALS_CIRCLE = 5;
 
+var animationReferences = [];
+
 export function setupLines(element, lines) {
+    element.innerHTML = "";
+
     var promise = new Promise(async (resolve, reject) => {
         if (!element) {
             reject();
@@ -118,17 +122,20 @@ function drawCircle(circleElement, time) {
     return promise;
 }
 
-export async function startBlinkingAnimation(element) {
-    let running = true;
+export function startBlinkingAnimation(element) {
+    animationReferences[element.id] = true;
+    runBlinkAnimation(element);
 
-    while (running) {
+    return () => {
+        animationReferences[element.id] = false;
+    }
+}
+
+async function runBlinkAnimation(element) {
+    while (animationReferences[element.id]) {
         await delay(Math.random() * 1500 + 1000);
         blinkLine(element, Math.floor(Math.random() * element.querySelectorAll("svg").length));
     } 
-
-    return () => {
-        running = false;
-    }
 }
 
 export function blinkLine(element, index) {

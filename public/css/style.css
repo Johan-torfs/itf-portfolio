@@ -85,20 +85,23 @@ h1:not(:has(+ .subtitle)) {
 
 .line-container {
   position: absolute;
-  width: 550px;
-  height: 600px;
+  width: 100vw;
+  max-width: 550px;
+  height: 300px;
   pointer-events: none;
 }
 
 #lines-right {
   bottom: 50px;
   left: 0;
+  overflow: hidden;
 }
 
 #lines-left {
   top: 50px;
   right: 0;
   transform: rotateY(180deg);
+  overflow: hidden;
 }
 
 #lines-right::after,
@@ -213,5 +216,9 @@ a:hover {
   :root {
     --container-width: 1320px;
     --container-padding: 0;
+  }
+
+  .line-container {
+    height: 600px;
   }
 }
