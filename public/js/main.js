@@ -1,17 +1,10 @@
 import { startLinesManager } from './lines/line-manager.js';
 import { setAnimationDelay } from './animation/animation-delay.js'
-import { slideInNavigation } from './navigation/nav-animation.js';
+import { startNavManager } from './navigation/nav-manager.js';
+import { startScrollManager } from './scroll-behaviour/scroll-manager.js';
 
 startLinesManager(['lines-left', 'lines-right']);
+startNavManager();
+startScrollManager();
 
 setAnimationDelay();
-
-document.getElementById('navigation-button').addEventListener('click', () => {
-    slideInNavigation();
-});
-
-document.getElementById('nav-container').querySelectorAll('a').forEach(element => {
-    element.addEventListener('click', () => {
-        slideInNavigation();
-    });
-});

@@ -1,6 +1,5 @@
 import { lines as linesObject } from "./lines.data";
 import { setupLines, startBlinkingAnimation } from "./lines.js";
-import { delay } from "../common.js";
 
 const BREAKPOINTS = {
     'small': 768,
@@ -11,7 +10,6 @@ var animationStopFunctions = [];
 var resizeQueueTrigger = true;
 var initializing = false;
 var currentBreakpoint = 'small';
-var running = true;
 
 export function startLinesManager(elementIdList) {
     updateBreakpoint();
