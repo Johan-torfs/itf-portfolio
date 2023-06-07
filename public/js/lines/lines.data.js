@@ -3,6 +3,7 @@ const LINE_WIDTH = 2;
 const LINE_WIDTH_LG = 3;
 const GRADIENT_COLOR_DARK = "rgb(0,150,255)";
 const GRADIENT_COLOR_LIGHT = "rgb(0,229,255)";
+const GRADIENT_COLOR_LIGHT_TRANSPARENT = "rgba(0,229,255,0)";
 const LINE_SCALE = 1.5;
 const DEFS = `
     <defs>
@@ -15,6 +16,10 @@ const DEFS = `
             <stop offset="0%" stop-color=${GRADIENT_COLOR_LIGHT} />
             <stop offset="100%" stop-color=${GRADIENT_COLOR_DARK} />
         </linearGradient>
+        <radialGradient id="gradient-blink">
+            <stop offset="0%" stop-color=${GRADIENT_COLOR_LIGHT} />
+            <stop offset="100%" stop-color=${GRADIENT_COLOR_LIGHT_TRANSPARENT} />
+        </radialGradient>
     </defs>
 ` 
 const LINE_SPEED = 1000;
