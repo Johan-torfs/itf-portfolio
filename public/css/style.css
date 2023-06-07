@@ -16,6 +16,12 @@ ul {
   list-style: none;
 }
 
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
 /* Global */
 :root {
   --color-bg-dark: #1F212B;
@@ -50,6 +56,7 @@ body {
   overflow: hidden;
 }
 
+/* Titles */
 h1 {
   font-size: 3.5rem;
   line-height: 1.1;
@@ -66,6 +73,8 @@ h1:not(:has(+ .subtitle)) {
   margin-bottom: 2rem;
 }
 
+
+/* Utility & container */
 .container {
   width: var(--container-width, 1320px);
   height: 100%;
@@ -83,6 +92,8 @@ h1:not(:has(+ .subtitle)) {
   text-align: center;
 }
 
+
+/* Lines animation */
 .line-container {
   position: absolute;
   width: 100vw;
@@ -126,24 +137,120 @@ h1:not(:has(+ .subtitle)) {
   position: absolute;
 }
 
+
+/* Navigation */
 nav {
+  --nav-padding: 2rem;
+
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 2rem;
+
+  width: 100%;
+  height: 100%;
 
   position: absolute;
   top: 0;
 
-  padding: 2rem calc((100vw - var(--container-width)) / 2);
+  z-index: 10;
+}
+
+nav .nav-container {
+  padding: var(--nav-padding) max(var(--nav-padding), (100vw - var(--container-width)) / 2);
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: radial-gradient(
+    circle at 50% 50%,
+    var(--color-bg-light) 0%,
+    var(--color-bg-dark) 100%
+  );
+
+  transform: translateX(-100%);
+  transition: transform 0.2s ease-in-out;
+}
+
+nav .nav-container.active {
+  transform: translateX(0);
 }
 
 nav ul {
   display: flex;
+  justify-content: center;
   align-items: center;
+  flex-direction: column;
   gap: 2rem;
 }
 
+/* Hamburger */
+.hamburger-container {
+  margin: var(--nav-padding);
+  padding: 0;
+
+  width: 2rem;
+  height: 1.5rem;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  z-index: 20;
+}
+
+nav .hamburger {
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+nav .hamburger > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: translate 0.2s ease-in-out;
+}
+
+nav .hamburger > svg line {
+  transition: 
+    rotate 0.2s ease-in-out,
+    translate 0.2s 0.2s ease-in-out,
+    opacity 0.2s 0.2s ease-in-out;
+}
+
+nav .hamburger.active > svg line {
+  transition: 
+    translate 0.2s ease-in-out,
+    rotate 0.2s 0.2s ease-in-out;
+}
+
+nav .hamburger > svg line:first-child {
+  transform-origin: center 35%;
+}
+
+nav .hamburger > svg line:last-child {
+  transform-origin: center 65%;
+}
+
+nav .hamburger.active > svg line:first-child {
+  translate: -10% 40%;
+  rotate: 45deg;
+}
+
+nav .hamburger.active > svg line:last-child {
+  translate: -10% -40%;
+  rotate: -45deg;
+}
+
+nav .hamburger.active > svg line:nth-child(2) {
+  opacity: 0;
+}
+
+/* Links */
 a {
   font-weight: 500;
   color: var(--color-text);
@@ -156,20 +263,15 @@ a:hover {
   color: var(--color-primary);
 }
 
-.arrow {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  padding-bottom: 2rem;
-}
 
+/* Text animations */
 .slide-in {
   overflow: hidden;
 }
 
 .slide-in > span,
-.slide-in > a {
+.slide-in > a,
+.slide-in > button {
   display: block;
 }
 
@@ -199,6 +301,7 @@ a:hover {
   }
 }
 
+/* Media queries */
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -221,4 +324,52 @@ a:hover {
   .line-container {
     height: 600px;
   }
+
+  .hamburger-container {
+    display: none;
+  }
+
+  nav {
+    height: auto;
+  }
+  
+  nav .nav-container {
+    justify-content: flex-start;
+    height: auto;
+    background-image: none;
+    transform: translateX(0);
+    transition: none;
+  }
+  
+  nav ul {
+    flex-direction: row;
+    gap: 2rem;
+  }
+}
+
+
+/* Arrow */
+.arrow {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-bottom: 2rem;
+
+  cursor: pointer;
+
+  transition: transform 0.5s ease-in-out;
+}
+
+.arrow svg {
+  stroke: #707070;
+  transition: stroke 0.2s ease-in-out;
+}
+
+.arrow:hover svg {
+  stroke: #ffffff;
+}
+
+.arrow:hover{
+  transform: translateX(-50%) translateY(-1rem);
 }
