@@ -453,6 +453,10 @@ a:hover {
 }
 
 @media (not (prefers-reduced-motion)) and (hover: hover) {
+  .carousel .carousel-card {
+    outline: 1px solid red;
+  }
+
   .carousel .carousel-card .card {
     transform: scale(0);
     transform-origin: bottom left;
