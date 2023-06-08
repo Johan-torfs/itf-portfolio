@@ -458,6 +458,12 @@ a:hover {
 
   margin: 1rem 0.5rem;
   z-index: 5;
+  
+  transition: color 0.2s ease-in-out;
+}
+
+.carousel .toggle-hover:hover {
+  color: var(--color-primary);
 }
 
 .carousel .carousel-card .card {
@@ -593,6 +599,10 @@ a:hover {
   .card {
     padding: 2rem;
     margin: 2rem;
+  }
+
+  .carousel .toggle-hover {
+    font-size: 1.5rem;
   }
 }
 
