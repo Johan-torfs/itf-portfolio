@@ -152,7 +152,7 @@ h2:not(:has(+ .subtitle)) {
 }
 
 #lines-left {
-  top: 0;
+  top: 50px;
   right: 0;
   transform: rotateY(180deg);
   overflow: hidden;
@@ -607,10 +607,6 @@ a:hover {
 
   #lines-right {
     bottom: 50px;
-  }
-  
-  #lines-left {
-    top: 50px;
   }
 }
 
