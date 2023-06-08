@@ -1,18 +1,21 @@
-import { delay, cubicbezier, getCurrentBreakpoint } from '../common.js';
+import { delay, cubicbezier, getCurrentBreakpoint, determineGestureType } from '../common.js';
 
 var carouselList = [];
 var touchStartX = 0;
+var touchStartY = 0;
 var mouseDown = false;
 
 const MIN_SWIPE_DISTANCE = 100;
 const MARGIN = {
-    "small": 32,
+    "xsmall": 32,
+    "small": 128,
     "large": 128,
 }
 
 export function startCarouselManager() {
     document.querySelectorAll('.carousel').forEach(carousel => {
         carouselList.push({
+            id: carousel.id,
             element: carousel, 
             position: 0, 
             length: carousel.querySelectorAll('.carousel-element').length,
@@ -65,21 +68,29 @@ function setupCarouselListeners() {
 
 function onTouchStart(e) {
     e.preventDefault();
-    onDragStart(e.touches[0].clientX);
+    onDragStart(e.touches[0].clientX, e.touches[0].clientY);
 }
 
 function onMouseDown(e) {
     mouseDown = true;
     e.preventDefault();
-    onDragStart(e.clientX);
+    onDragStart(e.clientX, e.clientY);
 }
 
-function onDragStart(dragStartX) {
+function onDragStart(dragStartX, dragStartY) {
     touchStartX = dragStartX;
+    touchStartY = dragStartY;
 }
 
 function onTouchMove(e, carousel) {
     e.preventDefault();
+
+    let deltaX = e.touches[0].clientX - touchStartX;
+    let deltaY = e.touches[0].clientY - touchStartY;
+    let gestureType = determineGestureType(deltaX, deltaY);
+
+    if (gestureType == 'swipe-up' || gestureType == 'swipe-down') return;
+
     onDragMove(e.touches[0].clientX, carousel);
 }
 
@@ -99,6 +110,13 @@ function onDragMove(dragStartX, carousel) {
 
 function onTouchEnd(e, carousel) {
     e.preventDefault();
+
+    let deltaX = e.changedTouches[0].clientX - touchStartX;
+    let deltaY = e.changedTouches[0].clientY - touchStartY;
+    let gestureType = determineGestureType(deltaX, deltaY);
+
+    if (gestureType == 'swipe-up' || gestureType == 'swipe-down') return;
+
     onDragEnd(e.changedTouches[0].clientX, carousel);
 }
 

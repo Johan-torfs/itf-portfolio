@@ -50,7 +50,6 @@ button {
 
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
 }
 
 body {
@@ -448,12 +447,8 @@ a:hover {
 
 @media (min-width: 768px) {
   :root {
-    --container-width: 1320px;
+    --container-width: 720px;
     --container-padding: 0rem;
-  }
-
-  .line-container {
-    height: 600px;
   }
 
   .hamburger-container {
@@ -479,6 +474,17 @@ a:hover {
 
   .carousel .carousel-body {
     gap: 8rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  :root {
+    --container-width: 1320px;
+    --container-padding: 0rem;
+  }
+
+  .line-container {
+    height: 600px;
   }
 }
 

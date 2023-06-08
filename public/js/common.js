@@ -1,6 +1,6 @@
 import { BREAKPOINTS } from './constants.js';
 
-var currentBreakpoint = 'small';
+var currentBreakpoint = 'xsmall';
 
 export function delay(time) {
     return new Promise(resolve => setTimeout(resolve, time));
@@ -27,4 +27,20 @@ export function updateBreakpoint() {
 
 export function getCurrentBreakpoint() {
     return currentBreakpoint;
+}
+
+export function determineGestureType(deltaX, deltaY) {
+    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+        if (deltaX > 0) {
+            return 'swipe-left';
+        } else {
+            return 'swipe-right';
+        }
+    } else {
+        if (deltaY > 0) {
+            return 'swipe-up';
+        } else {
+            return 'swipe-down';
+        }
+    }
 }

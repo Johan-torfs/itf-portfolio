@@ -7,7 +7,7 @@ const LINE_ELEMENTS = ['lines-left', 'lines-right']
 var animationStopFunctions = [];
 var resizeQueueTrigger = true;
 var initializing = false;
-var prevBreakpoint = "small";
+var prevBreakpoint = "xsmall";
 
 export function startLinesManager() {
     prevBreakpoint = getCurrentBreakpoint();

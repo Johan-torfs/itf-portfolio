@@ -233,7 +233,7 @@ const lines_left = [
     }
 })
 
-const lines_right_small = [
+const lines_right_xsmall = [
     {
         "stroke_width": LINE_WIDTH,
         "start": [0, 10],
@@ -273,7 +273,7 @@ const lines_right_small = [
     }
 })
 
-const lines_left_small = [
+const lines_left_xsmall = [
     {
         "stroke_width": LINE_WIDTH,
         "start": [0, 100],
@@ -313,12 +313,17 @@ const lines_left_small = [
     }
 })
 
+const lines_left_small = lines_left_xsmall;
+const lines_right_small = lines_right_xsmall;
+
 export const lines = {
     "lines-right": {
+        "xsmall": lines_right_xsmall,
         "small": lines_right_small,
         "large": lines_right
     },
     "lines-left": {
+        "xsmall": lines_left_xsmall,
         "small": lines_left_small,
         "large": lines_left
     }
