@@ -141,18 +141,18 @@ h2:not(:has(+ .subtitle)) {
   position: absolute;
   width: 100vw;
   max-width: 550px;
-  height: 300px;
+  height: min(300px, 40vh);
   pointer-events: none;
 }
 
 #lines-right {
-  bottom: 50px;
+  bottom: 0;
   left: 0;
   overflow: hidden;
 }
 
 #lines-left {
-  top: 50px;
+  top: 0;
   right: 0;
   transform: rotateY(180deg);
   overflow: hidden;
@@ -603,6 +603,14 @@ a:hover {
 
   .carousel .toggle-hover {
     font-size: 1.5rem;
+  }
+
+  #lines-right {
+    bottom: 50px;
+  }
+  
+  #lines-left {
+    top: 50px;
   }
 }
 

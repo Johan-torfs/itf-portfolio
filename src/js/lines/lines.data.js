@@ -6,6 +6,7 @@ const GRADIENT_COLOR_DARK = "rgb(0,150,255)";
 const GRADIENT_COLOR_LIGHT = "rgb(0,229,255)";
 const GRADIENT_COLOR_LIGHT_TRANSPARENT = "rgba(0,229,255,0)";
 const LINE_SCALE = 1.5;
+const LINE_SCALE_SMALL = 1.2;
 const DEFS = `
     <defs>
         <linearGradient id="gradient-line" x1="0%" y1="100%" x2="0%" y2="0%" gradientUnits="userSpaceOnUse">
@@ -268,7 +269,7 @@ const lines_right_xsmall = [
         defs: DEFS,
         gradient: true,
         color: GRADIENT_COLOR_LIGHT, 
-        scale: LINE_SCALE,
+        scale: LINE_SCALE_SMALL,
         speed: LINE_SPEED
     }
 })
@@ -308,7 +309,7 @@ const lines_left_xsmall = [
         defs: DEFS,
         gradient: true,
         color: GRADIENT_COLOR_LIGHT, 
-        scale: LINE_SCALE,
+        scale: LINE_SCALE_SMALL,
         speed: LINE_SPEED
     }
 })
