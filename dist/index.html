@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+
+    
+
+    
+    <script type="module" crossorigin src="/assets/index-50e47fc8.js"></script>
+    <link rel="stylesheet" href="/assets/index-13628c42.css">
+  </head>
+  <body>
+    <nav id="navigation">
+      <div class="hamburger-container fade-in" animation-delay="3.3">
+        <button id="navigation-button" class="hamburger" aria-controls="page-navigation" aria-expanded="false">
+          <svg>
+            <line x1="5%" y1="10%" x2="80%" y2="10%" stroke-width="3" stroke="#cccccc" stroke-linecap="round" />
+            <line x1="5%" y1="50%" x2="95%" y2="50%" stroke-width="3" stroke="#cccccc" stroke-linecap="round" />
+            <line x1="5%" y1="90%" x2="80%" y2="90%" stroke-width="3" stroke="#cccccc" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+      <div id="nav-container" class="nav-container">
+        <ul id="page-navigation" aria-label="Pagina navigatie">
+          <li class="slide-in" animation-delay="3">
+            <a href="#hero">Home</a>
+          </li>
+          <li class="slide-in" animation-delay="3.1">
+            <a href="#portfolio">Portfolio</a>
+          </li>
+          <li class="slide-in" animation-delay="3.2">
+            <a href="#stage">Stage</a>
+          </li>
+          <li class="slide-in" animation-delay="3.3">
+            <a href="#about">Over mij</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <header id="hero" class="container center | scroll-section">
+      <div class="text-center">
+        <h1 class="slide-in" animation-delay="2.5">
+          <span>Johan Torfs</span>
+        </h1>
+        <p class="subtitle slide-in" animation-delay="2.7">
+          <span>WEB DEVELOPER</span>  
+        </p>
+      </div>
+      <div class="arrow fade-in" animation-delay="6">
+        <a style="display: block; height: 50px;" href="#portfolio">
+          <svg width="50px" height="50px">
+            <line x1="50%" y1="0" x2="50%" y2="100%" stroke-width="2" />
+            <line x1="50%" y1="100%" x2="60%" y2="80%" stroke-width="2"/>
+            <line x1="50%" y1="100%" x2="40%" y2="80%" stroke-width="2" />
+          </svg>
+        </a>
+      </div>
+      <div id="lines-right" class="line-container" aria-hidden="false"></div>
+      <div id="lines-left" class="line-container" aria-hidden="false"></div>
+    </header>
+
+    <section id="portfolio" class="container-full text-center | scroll-section">
+      <h2>Portfolio</h2>
+      <div id="portfolio-carousel" class="carousel" data-position="0">
+        <ul class="carousel-body">
+          <li class="carousel-element active">
+            <p class="carousel-title">HET GROENE WOORD</p>
+            <div class="carousel-card" data-bg="/img/hetgroenewoord.webp">
+              <div class="card card-blurred">
+                <div class="card-body">
+                  <p class="card-title">
+                    Webdesign and development op maat.
+                  </p>
+                  <p class="mb-1">
+                    Een minimalistische aanpaak die enkel gebruik maakt van de basis:
+                  </p>
+                  <ul class="bullets">
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                </div>
+                <div>
+                  <a href="https://hetgroenewoord.be" target="_blank" class="underline">www.hetgroenewoord.be</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="carousel-element">
+            <p class="carousel-title">DE SPEELOTHEEK</p>
+            <div class="carousel-card" data-bg="/img/speelotheek.webp">
+              <div class="card card-blurred">
+                <div class="card-body">
+                  <p class="card-title">
+                    Functionele webshop voor een kinderdagverblijf.
+                  </p>
+                  <p class="mb-1">
+                    Een webshop die in gebruik is door het kinderdagverblijf 't ballonneke. Gebouwd met de volgende technologieën:
+                  </p>
+                  <ul class="bullets">
+                    <li>React</li>
+                    <li>PHP</li>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="carousel-element">
+            <p class="carousel-title">TICKET DASHBOARD</p>
+            <div class="carousel-card" data-bg="/img/ticketdashboard.webp">
+              <div class="card card-blurred">
+                <div class="card-body">
+                  <p class="card-title">
+                    Real-time dashboard.
+                  </p>
+                  <p class="mb-1">
+                    Een dashboard voor de analyse van tickets gemaakt voor een consultancy bedrijf. Gebouwd met de volgende technologieën:
+                  </p>
+                  <ul class="bullets">
+                    <li>Angular</li>
+                    <li>NestJS</li>
+                    <li>Externe API's</li>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="carousel-footer">
+          <button class="carousel-indicator active"></button>
+          <button class="carousel-indicator"></button>
+          <button class="carousel-indicator"></button>
+        </div>
+      </div>
+    </section>
+
+    <section id="stage" class="container-full text-center | scroll-section">
+      <h2>Portfolio</h2>
+      <div id="stage-carousel" class="carousel" data-position="0">
+        <ul class="carousel-body">
+          <li class="carousel-element active">
+            <h3 class="carousel-title">HET GROENE WOORD</h3>
+            <div class="carousel-card" data-bg="/img/hetgroenewoord.webp"></div>
+          </li>
+          <li class="carousel-element">
+            <h3 class="carousel-title">DE SPEELOTHEEK</h3>
+            <div class="carousel-card" data-bg="/img/speelotheek.webp"></div>
+          </li>
+          <li class="carousel-element">
+            <h3 class="carousel-title">TICKET DASHBOARD</h3>
+            <div class="carousel-card" data-bg="/img/ticketdashboard.webp"></div>
+          </li>
+        </ul>
+        <div class="carousel-footer">
+          <button class="carousel-indicator active"></button>
+          <button class="carousel-indicator"></button>
+          <button class="carousel-indicator"></button>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
