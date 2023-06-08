@@ -67,7 +67,7 @@ body {
 
 /* Titles */
 h1 {
-  font-size: 3.5rem;
+  font-size: min(3.5rem, 10vw);
   line-height: 1.1;
   font-weight: 700;
 }
@@ -84,7 +84,7 @@ h2:not(:has(+ .subtitle)) {
 }
 
 .subtitle {
-  font-size: 1.125rem;
+  font-size: min(1.125rem, 4vw);
   font-weight: 400;
   margin-bottom: 2rem;
 }
