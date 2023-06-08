@@ -101,6 +101,12 @@ h2:not(:has(+ .subtitle)) {
   flex-direction: column;
 }
 
+@media (hover: none) {
+  .container, .container-full {
+    padding: 6rem var(--container-padding) 4rem var(--container-padding);
+  }
+}
+
 .container {
   width: var(--container-width, 1320px);
 }
