@@ -452,7 +452,7 @@ a:hover {
   background-color: #ffffff;
 }
 
-@media (hover: hover) {
+@media (not (prefers-reduced-motion)) and (hover: hover) {
   .carousel .carousel-card .card {
     transform: scale(0);
     transform-origin: bottom left;
