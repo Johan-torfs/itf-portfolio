@@ -413,7 +413,6 @@ a:hover {
 
 .carousel .carousel-card {
   width: calc(var(--container-width) - (2 * var(--container-padding)));
-  padding: 2rem;
 
   flex-grow: 1;
 
@@ -493,8 +492,8 @@ a:hover {
 .card {
   color: var(--color-text-dark);
 
-  width: min(400px, calc(100% - 4rem));
-  min-height: 400px;
+  width: min(400px, 100%);
+  min-height:  min(400px, 100%);
 
   position: absolute;
   bottom: 0;
@@ -506,8 +505,7 @@ a:hover {
   flex-direction: column;
   justify-content: space-between;
 
-  padding: 2rem;
-  margin: 2rem;
+  padding: 1rem;
   text-align: left;
 
   z-index: 1;
@@ -535,7 +533,6 @@ a:hover {
 
 .card-blurred .card-title {
   font-weight: 700;
-  font-size: 1.2rem;
   margin-bottom: 1rem;
 }
 
@@ -569,6 +566,11 @@ a:hover {
 
   .carousel .carousel-body {
     gap: 8rem;
+  }
+
+  .card {
+    padding: 2rem;
+    margin: 2rem;
   }
 }
 
