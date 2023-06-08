@@ -92,7 +92,6 @@ h2:not(:has(+ .subtitle)) {
 
 /* Utility & container */
 .container, .container-full {
-  height: 100vh;
   height: 100svh;
   margin: 0 auto;
   padding: 6rem var(--container-padding) 2rem var(--container-padding);
