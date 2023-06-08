@@ -63,11 +63,21 @@ function setupCarouselListeners() {
                 });
             });
         });
+
+        carousel.elements.forEach((element, index) => {
+            var toggle = element.querySelector('.toggle-hover');
+            if (toggle == null) return;
+
+            toggle.addEventListener('click', () => {
+                console.log('toggle');
+                toggle.classList.toggle('active');
+                element.classList.toggle('image-only');
+            });
+        });
     });
 }
 
 function onTouchStart(e, carousel) {
-    e.preventDefault();
     onDragStart(e.touches[0].clientX, e.touches[0].clientY);
 }
 
@@ -77,7 +87,6 @@ function onMouseDown(e, carousel) {
         element.style.cursor = 'grabbing';
     });
 
-    e.preventDefault();
     onDragStart(e.clientX, e.clientY);
 }
 
@@ -87,7 +96,6 @@ function onDragStart(dragStartX, dragStartY) {
 }
 
 function onTouchMove(e, carousel) {
-    e.preventDefault();
 
     let deltaX = e.touches[0].clientX - touchStartX;
     let deltaY = e.touches[0].clientY - touchStartY;
@@ -101,7 +109,6 @@ function onTouchMove(e, carousel) {
 function onMouseMove(e, carousel) {
     if (!mouseDown) return;
 
-    e.preventDefault();
     onDragMove(e.clientX, carousel);
 }
 
@@ -113,7 +120,6 @@ function onDragMove(dragStartX, carousel) {
 }
 
 function onTouchEnd(e, carousel) {
-    e.preventDefault();
 
     let deltaX = e.changedTouches[0].clientX - touchStartX;
     let deltaY = e.changedTouches[0].clientY - touchStartY;
@@ -127,7 +133,6 @@ function onTouchEnd(e, carousel) {
 function onMouseUp(e, carousel) {
     if (!mouseDown) return;
 
-    e.preventDefault();
     onDragEnd(e.clientX, carousel);
 
     mouseDown = false;

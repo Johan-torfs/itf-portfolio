@@ -451,6 +451,24 @@ a:hover {
   background-color: #ffffff;
 }
 
+.carousel .toggle-hover {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  margin: 1rem 0.5rem;
+  z-index: 5;
+}
+
+.carousel .carousel-card .card {
+  transform-origin: bottom left;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel .carousel-element.image-only .card {
+  transform: scale(0);
+}
+
 @media ((not (prefers-reduced-motion)) and (min-width: 768px)) {
   .carousel .carousel-card .card {
     transform: scale(0);
@@ -485,6 +503,10 @@ a:hover {
   .carousel .carousel-card:hover .card {
     transform: scale(1);
     transition: transform 0.5s ease-in-out;
+  }
+
+  .carousel .toggle-hover {
+    display: none;
   }
 }
 
