@@ -1,36 +1,24 @@
 import { lines as linesObject } from "./lines.data";
 import { setupLines, startBlinkingAnimation } from "./lines.js";
+import { getCurrentBreakpoint } from "../common.js";
 
-const BREAKPOINTS = {
-    'small': 768,
-    'large': 1400,
-}
+const LINE_ELEMENTS = ['lines-left', 'lines-right']
 
 var animationStopFunctions = [];
 var resizeQueueTrigger = true;
 var initializing = false;
-var currentBreakpoint = 'small';
+var prevBreakpoint = "small";
 
-export function startLinesManager(elementIdList) {
-    updateBreakpoint();
-    setupAllLines(elementIdList);
-
-    window.addEventListener('resize', () => {
-        let prevBreakpoint = currentBreakpoint;
-        updateBreakpoint();
-        if (prevBreakpoint !== currentBreakpoint && resizeQueueTrigger) {
-            setupAllLines(elementIdList);
-        }
-    });
+export function startLinesManager() {
+    prevBreakpoint = getCurrentBreakpoint();
+    setupAllLines(LINE_ELEMENTS);
 }
 
-function updateBreakpoint() {
-    let screenWidth = window.innerWidth;
-    Object.keys(BREAKPOINTS).forEach(breakpoint => {
-        if (screenWidth >= BREAKPOINTS[breakpoint]) {
-            currentBreakpoint = breakpoint;
-        }
-    });
+export function onResize() {
+    if (prevBreakpoint != getCurrentBreakpoint() && resizeQueueTrigger) {
+        setupAllLines(LINE_ELEMENTS);
+        prevBreakpoint = getCurrentBreakpoint();
+    }
 }
 
 function setupAllLines(elementIdList) {
@@ -40,7 +28,7 @@ function setupAllLines(elementIdList) {
     animationStopFunctions = [];
 
     elementIdList.forEach(id => {
-        const lines = linesObject[id][currentBreakpoint]
+        const lines = linesObject[id][getCurrentBreakpoint()]
         setupLines(
             document.querySelector('#' + id), 
             lines
