@@ -132,6 +132,10 @@ h2:not(:has(+ .subtitle)) {
   font-weight: 700;
 }
 
+.mb-1 {
+  margin-bottom: 0.5rem;
+}
+
 
 /* Lines animation */
 .line-container {
@@ -391,6 +395,7 @@ a:hover {
   gap: 2rem;
 
   width: calc(var(--container-width) - (2 * var(--container-padding)));
+  cursor: grab;
 }
 
 .carousel .carousel-element {
@@ -448,47 +453,49 @@ a:hover {
   background-color: #ffffff;
 }
 
-.carousel .carousel-card .card {
-  transform: scale(0);
-  transform-origin: bottom left;
-  transition: transform 0.5s ease-in-out;
-}
+@media (hover: hover) {
+  .carousel .carousel-card .card {
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .carousel .carousel-card::after {
+    opacity: 0;
+    transition: opacity 0.2s 0.2s ease-in-out;
+  }
+  
+  .carousel .carousel-card::after {
+    content: '';
+  
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
 
-.carousel .carousel-card::after {
-  opacity: 0;
-  transition: opacity 0.2s 0.2s ease-in-out;
-}
-
-.carousel .carousel-card::after {
-  content: '';
-
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-}
-
-.carousel .carousel-card:hover::after {
-  opacity: 1;
-  transition: opacity 0.2s ease-in-out;
-}
-
-.carousel .carousel-card:hover .card {
-  transform: scale(1);
-  transition: transform 0.5s ease-in-out;
+  .carousel .carousel-card:hover::after {
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+  }
+  
+  .carousel .carousel-card:hover .card {
+    transform: scale(1);
+    transition: transform 0.5s ease-in-out;
+  }
 }
 
 /* Cards */
 .card {
   color: var(--color-text-dark);
 
-  width: 400px;
-  height: 400px;
+  width: min(400px, calc(100% - 4rem));
+  min-height: 400px;
 
   position: absolute;
   bottom: 0;

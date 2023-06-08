@@ -43,11 +43,11 @@ export function onResize() {
 
 function setupCarouselListeners() {
     carouselList.forEach((carousel, index) => {
-        carousel.body.addEventListener('touchstart', (e) => onTouchStart(e));
+        carousel.body.addEventListener('touchstart', (e) => onTouchStart(e, carousel));
         carousel.body.addEventListener('touchmove', (e) => onTouchMove(e, carousel));
         carousel.body.addEventListener('touchend', (e) => onTouchEnd(e, carousel));
 
-        carousel.body.addEventListener('mousedown', (e) => onMouseDown(e));
+        carousel.body.addEventListener('mousedown', (e) => onMouseDown(e, carousel));
         carousel.body.addEventListener('mousemove', (e) => onMouseMove(e, carousel));
         carousel.body.addEventListener('mouseup', (e) => onMouseUp(e, carousel));
 
@@ -66,13 +66,17 @@ function setupCarouselListeners() {
     });
 }
 
-function onTouchStart(e) {
+function onTouchStart(e, carousel) {
     e.preventDefault();
     onDragStart(e.touches[0].clientX, e.touches[0].clientY);
 }
 
-function onMouseDown(e) {
+function onMouseDown(e, carousel) {
     mouseDown = true;
+    carousel.elements.forEach(element => {
+        element.style.cursor = 'grabbing';
+    });
+
     e.preventDefault();
     onDragStart(e.clientX, e.clientY);
 }
@@ -125,7 +129,11 @@ function onMouseUp(e, carousel) {
 
     e.preventDefault();
     onDragEnd(e.clientX, carousel);
+
     mouseDown = false;
+    carousel.elements.forEach(element => {
+        element.style.cursor = 'grab';
+    });
 }
 
 function onDragEnd(dragStartX, carousel) {
