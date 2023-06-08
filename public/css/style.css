@@ -16,6 +16,11 @@ ul {
   list-style: none;
 }
 
+ul.bullets {
+  padding-left: 1rem;
+  list-style: disc;
+}
+
 button {
   border: none;
   background-color: transparent;
@@ -27,6 +32,7 @@ button {
   --color-bg-dark: #1F212B;
   --color-bg-light: #3C3F4E;
   --color-text: #ffffff;
+  --color-text-dark: #000000;
   --color-primary: rgb(0,150,255);
   --color-primary-transarent: rgba(0,150,255, 0);
 
@@ -116,6 +122,14 @@ h2:not(:has(+ .subtitle)) {
 
 .text-center {
   text-align: center;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.bold {
+  font-weight: 700;
 }
 
 
@@ -405,6 +419,9 @@ a:hover {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
+  position: relative;
+  isolation: isolate;
 }
 
 .carousel .carousel-element:not(.active) {
@@ -429,6 +446,91 @@ a:hover {
 
 .carousel .carousel-indicator.active {
   background-color: #ffffff;
+}
+
+.carousel .carousel-card .card {
+  transform: scale(0);
+  transform-origin: bottom left;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel .carousel-card::after {
+  opacity: 0;
+  transition: opacity 0.2s 0.2s ease-in-out;
+}
+
+.carousel .carousel-card::after {
+  content: '';
+
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.carousel .carousel-card:hover::after {
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.carousel .carousel-card:hover .card {
+  transform: scale(1);
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Cards */
+.card {
+  color: var(--color-text-dark);
+
+  width: 400px;
+  height: 400px;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  isolation: isolate;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 2rem;
+  margin: 2rem;
+  text-align: left;
+
+  z-index: 1;
+}
+
+.card a {
+  color: var(--color-text-dark);
+}
+
+.card-blurred::before {
+  content: '';
+
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+
+  z-index: -2;
+}
+
+.card-blurred .card-title {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 /* Media queries */
