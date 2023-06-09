@@ -12,6 +12,8 @@ var touchStartX = 0;
 var touchStartY = 0;
 var touching = false;
 
+var lockTouch = false;
+
 export function startScrollManager() {
     sections = document.querySelectorAll('.scroll-section');
     updateScrollPosition();
@@ -36,6 +38,11 @@ export function startScrollManager() {
     window.addEventListener('touchmove', (e) => {
         if (!touching) return;
 
+        if (lockTouch) {
+            touching = false;
+            return;
+        }
+
         let deltaX = touchStartX - e.changedTouches[0].clientX;
         let deltaY = touchStartY - e.changedTouches[0].clientY;
 
@@ -54,6 +61,11 @@ export function startScrollManager() {
 
     window.addEventListener('touchend', (e) => {
         if (!touching) return;
+
+        if (lockTouch) {
+            touching = false;
+            return;
+        }
 
         let deltaX = touchStartX - e.changedTouches[0].clientX;
         let deltaY = touchStartY - e.changedTouches[0].clientY;
@@ -76,6 +88,14 @@ export function startScrollManager() {
     });
 
     runScrollManager();
+}
+
+export function lockTouchScrolling() {
+    lockTouch = true;
+}
+
+export function unlockTouchScrolling() {
+    lockTouch = false;
 }
 
 function onScrollGesture(deltaY) {

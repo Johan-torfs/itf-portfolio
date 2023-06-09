@@ -10,7 +10,9 @@ var gestureType = '';
 const MIN_SWIPE_DISTANCE = 50;
 const MAX_SWIPE_DISTANCE = 500;
 
-export function startCubeManager() {
+var running = false;
+
+export function startCubeManager(lockScrolling, unlockScrolling) {
     document.querySelectorAll('.stage-body').forEach(cube => {
         cubeList.push({
             id: cube.id,
@@ -21,6 +23,8 @@ export function startCubeManager() {
             elements: cube.querySelectorAll('.face'),
             indicators: cube.querySelectorAll('.stage-indicator'),
             transitionDuration: '500ms',
+            hasRotations: false,
+            canBeReset: false,
         });
     });
 
@@ -30,7 +34,29 @@ export function startCubeManager() {
     }
 
     onResize();
-    setupCubeListeners();
+    setupCubeListeners(lockScrolling, unlockScrolling);
+
+    running = true;
+    runCubeManager();
+}
+
+async function runCubeManager() {
+    while (running) {
+        await delay(1000);
+        cubeList.forEach((cube, index) => {
+            if (cube.canBeReset && cube.position == 0) {
+                cube.canBeReset = false;
+                cube.hasRotations = false;
+                transitionCubeInstantly(cube, '');
+            } else if (cube.canBeReset) {
+                cube.canBeReset = false;
+            }
+
+            if (cube.hasRotations && cube.position == 0) {
+                cube.canBeReset = true;
+            }
+        });
+    }
 }
 
 export function onResize() {
@@ -39,11 +65,11 @@ export function onResize() {
     });
 }
 
-function setupCubeListeners() {
+function setupCubeListeners(lockScrolling, unlockScrolling) {
     cubeList.forEach((cube, index) => {
-        // cube.body.addEventListener('touchstart', (e) => onTouchStart(e, cube));
-        // cube.body.addEventListener('touchmove', (e) => onTouchMove(e, cube));
-        // cube.body.addEventListener('touchend', (e) => onTouchEnd(e, cube));
+        cube.body.addEventListener('touchstart', (e) => onTouchStart(e, cube, lockScrolling));
+        cube.body.addEventListener('touchmove', (e) => onTouchMove(e, cube));
+        cube.body.addEventListener('touchend', (e) => onTouchEnd(e, cube, unlockScrolling));
 
         cube.body.addEventListener('mousedown', (e) => onMouseDown(e, cube));
         cube.body.addEventListener('mousemove', (e) => onMouseMove(e, cube));
@@ -82,7 +108,8 @@ async function transitionCubeInstantly(cube, transform) {
     cube.body.style.transitionDuration = cube.transitionDuration;
 }
 
-function onTouchStart(e, cube) {
+function onTouchStart(e, cube, lockScrolling) {
+    lockScrolling();
     onDragStart(e.touches[0].clientX, e.touches[0].clientY);
 }
 
@@ -103,17 +130,13 @@ function onDragStart(dragStartX, dragStartY) {
 }
 
 function onTouchMove(e, cube) {
-    onDragMove(e.touches[0].clientX, cube);
+    onDragMove(e.touches[0].clientX, e.touches[0].clientY, cube);
 }
 
 function onMouseMove(e, cube) {
     if (!mouseDown) return;
 
     onDragMove(e.clientX, e.clientY, cube);
-}
-
-function resetGesture(cube, gestureType) {
-   
 }
 
 function onDragMove(dragStartX, dragStartY, cube) {
@@ -189,15 +212,9 @@ function getMoveRotation(gestureType, deltaX, deltaY, nextRotation, boolBack, bo
     return nextRotation.substring(0, rotationAmountStartIndex + 1) + rotation + nextRotation.substring(rotationAmountEndIndex);
 }
 
-function onTouchEnd(e, cube) {
-
-    let deltaX = e.changedTouches[0].clientX - touchStartX;
-    let deltaY = e.changedTouches[0].clientY - touchStartY;
-    let gestureType = determineGestureType(deltaX, deltaY);
-
-    if (gestureType == 'swipe-up' || gestureType == 'swipe-down') return;
-
-    onDragEnd(e.changedTouches[0].clientX, cube);
+function onTouchEnd(e, cube, unlockScrolling) {
+    unlockScrolling();
+    onDragEnd(e.changedTouches[0].clientX, e.changedTouches[0].clientY, cube);
 }
 
 function onMouseUp(e, cube) {
@@ -245,7 +262,10 @@ function onDragEnd(dragStartX, dragStartY, cube) {
             cube.position++;
         }
     }
-    setIndicator(cube, cube.position)
+
+    if (cube.position > cube.length - 1) cube.position = 0;
+    if (cube.body.style.transform != '') cube.hasRotations = true;
+    setIndicator(cube, cube.position);
 }
 
 function setIndicator(cube, position) {
