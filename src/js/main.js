@@ -5,6 +5,7 @@ import { startScrollManager } from './scroll-behaviour/scroll-manager.js';
 import { startBackgroundManager } from './background/background-manager.js';
 import { startCarouselManager, onResize as onResizeCarousel } from './carousel/carousel-manager.js';
 import { updateBreakpoint } from './common.js';
+import { startCubeManager, onResize as onResizeCube } from './cube/cube-manager.js';
 
 updateBreakpoint();
 
@@ -13,6 +14,7 @@ startNavManager();
 startScrollManager();
 startBackgroundManager();
 startCarouselManager();
+startCubeManager();
 
 setAnimationDelay();
 
@@ -20,4 +22,5 @@ window.addEventListener('resize', () => {
     updateBreakpoint();
     onResizeLines();
     onResizeCarousel();
+    onResizeCube();
 });

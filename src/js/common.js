@@ -32,15 +32,15 @@ export function getCurrentBreakpoint() {
 export function determineGestureType(deltaX, deltaY) {
     if (Math.abs(deltaX) > Math.abs(deltaY)) {
         if (deltaX > 0) {
-            return 'swipe-left';
-        } else {
             return 'swipe-right';
+        } else {
+            return 'swipe-left';
         }
     } else {
         if (deltaY > 0) {
-            return 'swipe-up';
-        } else {
             return 'swipe-down';
+        } else {
+            return 'swipe-up';
         }
     }
 }
