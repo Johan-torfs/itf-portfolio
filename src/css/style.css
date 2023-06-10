@@ -68,6 +68,10 @@ body {
   overflow: hidden;
 }
 
+p, li {
+  font-size: max(0.8rem, min(1rem, 3.5vw));
+}
+
 p.text-container {
   max-width: 600px;
 }
@@ -611,13 +615,11 @@ a:hover {
 
   backface-visibility: hidden;
 
-  font-size: max(0.8rem, min(1rem, 3.5vw));
-
   background-color: var(--color-bg-light);
   border: 1px solid var(--color-gray-dark);
 }
 
-.stage-container .stage-content .face.last-to-bottom > p:nth-last-of-type(2) {
+.last-to-bottom > p:nth-last-of-type(2) {
   flex-grow: 1;
 }
 
@@ -729,8 +731,6 @@ a:hover {
 
 /* Cards */
 .card {
-  color: var(--color-text-dark);
-
   width: min(400px, 100%);
   min-height:  min(400px, 100%);
 
@@ -750,7 +750,18 @@ a:hover {
   z-index: 1;
 }
 
-.card a {
+.card-full {
+  height: 100%;
+}
+
+.card-full .card-body {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.card-blurred a {
   color: var(--color-text-dark);
 }
 
@@ -770,9 +781,86 @@ a:hover {
   z-index: -2;
 }
 
-.card-blurred .card-title {
+.card-blurred {
+  color: var(--color-text-dark);
+}
+
+.card .card-title {
   font-weight: 700;
   margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+img.thumbnail {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+
+  padding-inline: 2rem;
+}
+
+img.circle {
+  border-radius: 50%;
+}
+
+.social-links {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 2rem;
+}
+
+.social-links .mail i {
+  background-image: linear-gradient(
+    to bottom right,
+    #F4E4FE 0%,
+    #B400FF 100%
+  );
+}
+
+.social-links .github i {
+  background-image: linear-gradient(
+    to bottom right,
+    #808080 0%,
+    #3C3F4E 100%
+  );
+}
+
+.social-links .linkedin i {
+  background-image: linear-gradient(
+    to bottom right,
+    #E4EBFE 0%,
+    #005DFF 100%
+  );
+}
+
+.social-links a {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 0.25rem;
+  font-size: clamp(1rem, 4vw, 1.2rem);
+}
+
+.social-links li i {
+  border-radius: 50%;
+  width: max(4rem, 4vw);
+  height: max(4rem, 4vw);
+
+  font-size: clamp(2rem, 10vw, 3rem);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .display-block-md,
