@@ -532,12 +532,10 @@ a:hover {
   }
   
   .carousel .carousel-card::after {
+    content: '';
+
     opacity: 0;
     transition: opacity 0.2s 0.2s ease-in-out;
-  }
-  
-  .carousel .carousel-card::after {
-    content: '';
   
     width: 100%;
     height: 100%;
@@ -761,6 +759,10 @@ a:hover {
   flex-direction: column;
 }
 
+.card-full .card-body .thumbnail-container {
+  max-height: 50%;
+}
+
 .card-blurred a {
   color: var(--color-text-dark);
 }
@@ -792,7 +794,8 @@ a:hover {
 }
 
 img.thumbnail {
-  width: 100%;
+  max-height: 100%;
+  max-width: 100%;
   object-fit: cover;
   object-position: center;
 
@@ -811,7 +814,7 @@ img.circle {
   justify-content: center;
   align-items: center;
 
-  gap: 2rem;
+  gap: clamp(0.5rem, 3vw, 1.5rem);
 }
 
 .social-links .mail i {
@@ -889,6 +892,10 @@ img.circle {
 
   .display-grid-md {
     display: grid;
+  }
+
+  .display-none-md {
+    display: none;
   }
 
   .hamburger-container {
