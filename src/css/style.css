@@ -372,7 +372,8 @@ a:hover {
   animation: slide-in 1s ease-in-out forwards;
 }
 
-.slide-in[animation-delay] > * {
+.slide-in[animation-delay] > *,
+.fade-in[animation-delay] > * {
   animation-play-state: paused;
 }
 
@@ -522,6 +523,13 @@ a:hover {
 
 .carousel .carousel-element.image-only .card-blurred {
   transform: scale(0);
+}
+
+.portfolio-row {
+  display: flex;
+  flex-direction: column;
+
+  flex-grow: 1;
 }
 
 @media ((not (prefers-reduced-motion)) and (min-width: 768px)) {
@@ -893,12 +901,16 @@ img.circle {
 
   display: flex;
   flex-direction: column;
+
+  height: 100%;
 }
 
 .about-grid .item1 {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
+}
 
+.about-grid .item1 .item {
   text-align: center;
 }
 

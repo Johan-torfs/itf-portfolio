@@ -1,6 +1,7 @@
 import { delay, determineGestureType } from '../common.js';
 
 var sections = [];
+var onScrollCalbacks = [];
 
 var currentSection = 0;
 var running = true;
@@ -98,6 +99,10 @@ export function unlockTouchScrolling() {
     lockTouch = false;
 }
 
+export function registerOnScrollCallback(callback) {
+    onScrollCalbacks.push(callback);
+}
+
 function onScrollGesture(deltaY) {
     if (scrollUpdateRequired) return;
 
@@ -148,4 +153,12 @@ function updateScrollPosition() {
         }
     });
     scrollUpdateRequired = false;
+
+    onScrollCalbacks.forEach(callback => {
+        callback();
+    });
+}
+
+export function isCurrentSection(section) {
+    return sections[currentSection] == section;
 }
