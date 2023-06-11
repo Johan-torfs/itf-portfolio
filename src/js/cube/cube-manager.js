@@ -238,6 +238,8 @@ function onDragEnd(dragStartX, dragStartY, cube) {
 
     cube.body.style.transitionDuration = cube.transitionDuration;
     if (Math.abs(deltaX) < MIN_SWIPE_DISTANCE && Math.abs(deltaY) < MIN_SWIPE_DISTANCE) {
+        if (!rotationAdded) return;
+        
         let lastIndex = cube.body.style.transform.lastIndexOf(' ');
         if (nextRotation == "back") {
             nextRotation = cube.body.style.transform.substring(lastIndex + 1);
