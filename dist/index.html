@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+
+    
+
+    
+    <script src="https://kit.fontawesome.com/3025c21c68.js" crossorigin="anonymous"></script>
+    <script type="module" crossorigin src="/assets/index-8685dc0e.js"></script>
+    <link rel="stylesheet" href="/assets/index-775b60d1.css">
+  </head>
+  <body>
+    <nav id="navigation">
+      <div class="hamburger-container fade-in" animation-delay="3.3">
+        <button id="navigation-button" class="hamburger" aria-controls="page-navigation" aria-expanded="false">
+          <svg>
+            <line x1="5%" y1="10%" x2="80%" y2="10%" stroke-width="3" stroke="#cccccc" stroke-linecap="round" />
+            <line x1="5%" y1="50%" x2="95%" y2="50%" stroke-width="3" stroke="#cccccc" stroke-linecap="round" />
+            <line x1="5%" y1="90%" x2="80%" y2="90%" stroke-width="3" stroke="#cccccc" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+      <div id="nav-container" class="nav-container">
+        <ul id="page-navigation" aria-label="Pagina navigatie">
+          <li class="slide-in" animation-delay="3">
+            <a href="#hero">Home</a>
+          </li>
+          <li class="slide-in" animation-delay="3.1">
+            <a href="#portfolio">Portfolio</a>
+          </li>
+          <li class="slide-in" animation-delay="3.2">
+            <a href="#stage">Stage</a>
+          </li>
+          <li class="slide-in" animation-delay="3.3">
+            <a href="#about">Over mij</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <header id="hero" class="container center | scroll-section">
+      <div class="text-center mb-4">
+        <h1 class="slide-in" animation-delay="2.5">
+          <span>Johan Torfs</span>
+        </h1>
+        <p class="subtitle slide-in" animation-delay="2.7">
+          <span>WEB DEVELOPER</span>  
+        </p>
+      </div>
+      <div class="arrow fade-in" animation-delay="6">
+        <a style="display: block; height: 50px;" href="#portfolio">
+          <svg class="arrow-svg" width="50px" height="50px">
+            <line x1="50%" y1="0" x2="50%" y2="100%" stroke-width="2" />
+            <line x1="50%" y1="100%" x2="60%" y2="80%" stroke-width="2"/>
+            <line x1="50%" y1="100%" x2="40%" y2="80%" stroke-width="2" />
+          </svg>
+        </a>
+      </div>
+      <div id="lines-right" class="line-container" aria-hidden="false"></div>
+      <div id="lines-left" class="line-container" aria-hidden="false"></div>
+    </header>
+
+    <section id="portfolio" class="container-full text-center | scroll-section">
+      <h2 class="slide-in" animation-delay="0">
+        <span>Portfolio</span>
+      </h2>
+      <div id="portfolio-carousel" class="carousel">
+        <ul class="carousel-body">
+          <li class="carousel-element active">
+            <p class="carousel-title slide-in" animation-delay="0.5">
+              <span>HET GROENE WOORD</span>
+            </p>
+            <div class="portfolio-row fade-in" animation-delay="0.5">
+              <div class="carousel-card" data-bg="/img/hetgroenewoord.webp">
+                <button class="toggle-hover"><i class="fa-solid fa-image"></i></button>
+                <div class="card card-blurred card-absolute">
+                  <div class="card-body">
+                    <p class="card-title">
+                      Webdesign and development op maat.
+                    </p>
+                    <p class="mb-1">
+                      Een minimalistische aanpak die enkel gebruik maakt van de basis:
+                    </p>
+                    <ul class="bullets">
+                      <li>HTML</li>
+                      <li>CSS</li>
+                      <li>JavaScript</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <a href="https://hetgroenewoord.be" target="_blank" class="underline">www.hetgroenewoord.be</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="carousel-element">
+            <p class="carousel-title slide-in" animation-delay="0.5">
+              <span>DE SPEELOTHEEK</span>
+            </p>
+            <div class="portfolio-row fade-in" animation-delay="0.5">
+              <div class="carousel-card" data-bg="/img/speelotheek.webp">
+                <button class="toggle-hover"><i class="fa-solid fa-image"></i></button>
+                <div class="card card-blurred card-absolute">
+                  <div class="card-body">
+                    <p class="card-title">
+                      Functionele webshop voor een kinderdagverblijf.
+                    </p>
+                    <p class="mb-1">
+                      Een webshop die in gebruik is door het kinderdagverblijf 't ballonneke. Gebouwd met de volgende technologieën:
+                    </p>
+                    <ul class="bullets">
+                      <li>React</li>
+                      <li>PHP</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="carousel-element">
+            <p class="carousel-title slide-in" animation-delay="0.5">
+              <span>TICKET DASHBOARD</span>
+            </p>
+            <div class="portfolio-row fade-in" animation-delay="0.5">
+              <div class="carousel-card" data-bg="/img/ticketdashboard.webp">
+                <button class="toggle-hover"><i class="fa-solid fa-image"></i></button>
+                <div class="card card-blurred card-absolute">
+                  <div class="card-body">
+                    <p class="card-title">
+                      Real-time dashboard.
+                    </p>
+                    <p class="mb-1">
+                      Een dashboard voor de analyse van tickets gemaakt voor het consultancy bedrijf Track42. Gebouwd met de volgende technologieën:
+                    </p>
+                    <ul class="bullets">
+                      <li>Angular</li>
+                      <li>NestJS</li>
+                      <li>Externe API's</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="carousel-footer fade-in" animation-delay="2">
+          <button class="carousel-indicator active"></button>
+          <button class="carousel-indicator"></button>
+          <button class="carousel-indicator"></button>
+        </div>
+      </div>
+    </section>
+
+    <section id="stage" class="container text-center | scroll-section">
+      <h2 class="slide-in" animation-delay="0">
+        <span>Stage</span>
+      </h2>
+      <p class="subtitle slide-in" animation-delay="0.5">
+        <span>PAJAMA LLAMA GAMES</span>
+      </p>
+
+      <!-- Small -->
+      <div class="stage-container display-none-lg fade-in" animation-delay="0.5">
+        <div class="stage-body">
+          <div class="stage-content">
+            <div class="face front text-start" swipe-left="rotateY(-90deg)" forward="swipe-left">
+              <p class="mb-2 text-container"><span class="bold fs-24">Van 2/2/2023 tot 2/6/2023 </span>liep ik stage bij Pajama Llama Games, een een klein, maar ambitieus game development bedrijf dat de afgelopen jaren de aandacht heeft weten te trekken met hun veelgeprezen spel genaamd Flotsam.</p>
+              <div class="drag-icon drag-icon-right">
+                <svg class="arrow-svg" width="50px" height="25px">
+                  <line x1="50%" y1="0" x2="50%" y2="100%" stroke-width="2" />
+                  <line x1="50%" y1="100%" x2="60%" y2="80%" stroke-width="2"/>
+                  <line x1="50%" y1="100%" x2="40%" y2="80%" stroke-width="2" />
+                </svg>
+                <i class="fas fa-hand"></i>
+              </div>
+            </div>
+            <div class="face right text-start" swipe-up="rotateZ(-90deg)" forward="swipe-up">
+              <p class="mb-2 text-container"><span class="bold fs-24">Flotsam </span>is post-apocalyptisch stadssimulatiespel waarin spelers de uitdaging aangaan om een drijvende nederzetting te bouwen en te overleven in een wereld overspoeld door water.</p>
+              <div class="drag-icon drag-icon-bottom">
+                <svg class="arrow-svg" width="50px" height="25px">
+                  <line x1="50%" y1="0" x2="50%" y2="100%" stroke-width="2" />
+                  <line x1="50%" y1="100%" x2="60%" y2="80%" stroke-width="2"/>
+                  <line x1="50%" y1="100%" x2="40%" y2="80%" stroke-width="2" />
+                </svg>
+                <i class="fas fa-hand"></i>
+              </div>
+            </div>
+            <div class="face bottom text-start last-to-bottom" swipe-left="rotateX(90deg)" forward="swipe-left">
+              <p class="mb-2 text-container">Het spel biedt spelers de vrijheid om hun eigen unieke drijvende samenleving te bouwen, terwijl ze de overblijfselen van de beschaving verkennen en waardevolle materialen uit de zee verzamelen.</p>
+              <p class="text-container">Ontdek het spel op hun website: <a class="underline" href="https://www.pajamallama.be">www.pajamallama.be</a></p>
+              <div class="drag-icon drag-icon-right">
+                <svg class="arrow-svg" width="50px" height="25px">
+                  <line x1="50%" y1="0" x2="50%" y2="100%" stroke-width="2" />
+                  <line x1="50%" y1="100%" x2="60%" y2="80%" stroke-width="2"/>
+                  <line x1="50%" y1="100%" x2="40%" y2="80%" stroke-width="2" />
+                </svg>
+                <i class="fas fa-hand"></i>
+              </div>
+            </div>
+            <div class="face back text-start" swipe-up="rotateY(-90deg)" forward="swipe-up">
+              <p class="mb-2 text-container"><span class="bold fs-24">Mijn opdracht </span>bij Pajama Llama was om mee te draaien in de ontwikkeling en afwerking van Flotsam. Meer specifiek, was het mijn taak om problemen met het constructie-systeem van het spel te onderzoeken en op te lossen. Daarnaast werd er van mij ook verwacht om andere gevraagde features en verbeteringen te implementeren.</p>
+              <div class="drag-icon drag-icon-bottom">
+                <svg class="arrow-svg" width="50px" height="25px">
+                  <line x1="50%" y1="0" x2="50%" y2="100%" stroke-width="2" />
+                  <line x1="50%" y1="100%" x2="60%" y2="80%" stroke-width="2"/>
+                  <line x1="50%" y1="100%" x2="40%" y2="80%" stroke-width="2" />
+                </svg>
+                <i class="fas fa-hand"></i>
+              </div>
+            </div>
+            <div class="face left text-start" swipe-left="rotateZ(-90deg)" forward="swipe-left">
+              <p class="mb-2 text-container"><span class="bold fs-24">Het resultaat </span>was dat ik enkele reeds bekende bugs heb kunnen oplossen en twee uitgebeide features heb kunnen implementeren:</p>
+              <ul class="bullets">
+                <li>Het upgraden van de 'walkways'</li>
+                <li>Het uitbouwen  van de 'Architect Overlay'</li>
+              </ul>
+              <div class="drag-icon drag-icon-right">
+                <svg class="arrow-svg" width="50px" height="25px">
+                  <line x1="50%" y1="0" x2="50%" y2="100%" stroke-width="2" />
+                  <line x1="50%" y1="100%" x2="60%" y2="80%" stroke-width="2"/>
+                  <line x1="50%" y1="100%" x2="40%" y2="80%" stroke-width="2" />
+                </svg>
+                <i class="fas fa-hand"></i>
+              </div>
+            </div>
+            <div class="face top text-start" swipe-up="rotateX(90deg)" forward="swipe-up">
+              <img src="/img/flotsam.webp" alt="" onerror="this.onerror=null; this.src='/img/flotsam.jpg'">
+              <ul class="stage-download">
+                <li class="stage-document">
+                  <a href="/docs/pva.pdf" target="_blank"><i class="fas fa-download mr-0.5 mb-0.5"></i> Plan van Aanpak</a>
+                </li>
+                <li class="stage-document">
+                  <a href="/docs/realisatie.pdf" target="_blank"><i class="fas fa-download mr-0.5 mb-0.5"></i> Realisatie document</a>
+                </li>
+                <li class="stage-document">
+                  <a href="/docs/reflectie.pdf" target="_blank"><i class="fas fa-download mr-0.5 mb-0.5"></i> Reflectie document</a>
+                </li>
+              </ul>
+              <div class="drag-icon drag-icon-bottom">
+                <svg class="arrow-svg" width="50px" height="25px">
+                  <line x1="50%" y1="0" x2="50%" y2="100%" stroke-width="2" />
+                  <line x1="50%" y1="100%" x2="60%" y2="80%" stroke-width="2"/>
+                  <line x1="50%" y1="100%" x2="40%" y2="80%" stroke-width="2" />
+                </svg>
+                <i class="fas fa-hand"></i>
+              </div>
+            </div>
+          </div>
+          <div class="stage-footer fade-in" animation-delay="1">
+            <button class="stage-indicator active"></button>
+            <button class="stage-indicator"></button>
+            <button class="stage-indicator"></button>
+            <button class="stage-indicator"></button>
+            <button class="stage-indicator"></button>
+            <button class="stage-indicator"></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Large -->
+      <div class="stage-container display-grid-lg fade-in" animation-delay="0.5">
+        <div class="stage-body">
+          <div class="stage-content">
+            <div class="face front text-start last-to-bottom" swipe-left="rotateY(-90deg)" forward="swipe-left">
+              <p class="mb-4 text-container"><span class="bold fs-32">Van 2/2/2023 tot 2/6/2023 </span>liep ik stage bij Pajama Llama Games, een een klein, maar ambitieus game development bedrijf dat de afgelopen jaren de aandacht heeft weten te trekken met hun veelgeprezen spel genaamd Flotsam.</p>
+              <p class="mb-4 text-container"><span class="bold fs-32">Flotsam </span>is post-apocalyptisch stadssimulatiespel waarin spelers de uitdaging aangaan om een drijvende nederzetting te bouwen en te overleven in een wereld overspoeld door water.</p>
+              <p class="mb-4 text-container">Het spel biedt spelers de vrijheid om hun eigen unieke drijvende samenleving te bouwen, terwijl ze de overblijfselen van de beschaving verkennen en waardevolle materialen uit de zee verzamelen.</p>
+              <p class="text-container">Ontdek het spel op hun website: <a class="underline" href="https://www.pajamallama.be">www.pajamallama.be</a></p>
+              <div class="drag-icon drag-icon-right">
+                <svg class="arrow-svg" width="50px" height="25px">
+                  <line x1="50%" y1="0" x2="50%" y2="100%" stroke-width="2" />
+                  <line x1="50%" y1="100%" x2="60%" y2="80%" stroke-width="2"/>
+                  <line x1="50%" y1="100%" x2="40%" y2="80%" stroke-width="2" />
+                </svg>
+                <i class="fas fa-hand"></i>
+              </div>
+            </div>
+            <div class="face right text-start" swipe-right="back" swipe-up="rotateZ(-90deg)" forward="swipe-up">
+              <p class="mb-4 text-container"><span class="bold fs-32">Mijn opdracht </span>bij Pajama Llama was om mee te draaien in de ontwikkeling en afwerking van Flotsam. Meer specifiek, was het mijn taak om problemen met het constructie-systeem van het spel te onderzoeken en op te lossen. Daarnaast werd er van mij ook verwacht om andere gevraagde features en verbeteringen te implementeren.</p>
+              <p class="mb-4 text-container"><span class="bold fs-32">Het resultaat </span>was dat ik enkele reeds bekende bugs heb kunnen oplossen en twee uitgebeide features heb kunnen implementeren:</p>
+              <ul class="bullets">
+                <li>Het upgraden van de 'walkways'</li>
+                <li>Het uitbouwen  van de 'Architect Overlay'</li>
+              </ul>
+              <div class="drag-icon drag-icon-left">
+                <svg class="arrow-svg" width="50px" height="25px">
+                  <line x1="50%" y1="0" x2="50%" y2="100%" stroke-width="2" />
+                  <line x1="50%" y1="100%" x2="60%" y2="80%" stroke-width="2"/>
+                  <line x1="50%" y1="100%" x2="40%" y2="80%" stroke-width="2" />
+                </svg>
+                <i class="fas fa-hand"></i>
+              </div>
+              <div class="drag-icon drag-icon-bottom">
+                <svg class="arrow-svg" width="50px" height="25px">
+                  <line x1="50%" y1="0" x2="50%" y2="100%" stroke-width="2" />
+                  <line x1="50%" y1="100%" x2="60%" y2="80%" stroke-width="2"/>
+                  <line x1="50%" y1="100%" x2="40%" y2="80%" stroke-width="2" />
+                </svg>
+                <i class="fas fa-hand"></i>
+              </div>
+            </div>
+            <div class="face bottom text-start" swipe-down="back">
+              <img src="/img/flotsam.webp" alt="" height="450px" onerror="this.onerror=null; this.src='/img/flotsam.jpg'">
+              <div class="drag-icon drag-icon-top">
+                <svg class="arrow-svg" width="50px" height="25px">
+                  <line x1="50%" y1="0" x2="50%" y2="100%" stroke-width="2" />
+                  <line x1="50%" y1="100%" x2="60%" y2="80%" stroke-width="2"/>
+                  <line x1="50%" y1="100%" x2="40%" y2="80%" stroke-width="2" />
+                </svg>
+                <i class="fas fa-hand"></i>
+              </div>
+            </div>
+          </div>
+          <div class="stage-footer fade-in" animation-delay="1.5">
+            <button class="stage-indicator active"></button>
+            <button class="stage-indicator"></button>
+            <button class="stage-indicator"></button>
+          </div>
+        </div>
+        <ul class="stage-download-side display-none-lg fade-in">
+          <li class="stage-document fade-in" animation-delay="1">
+            <a href="/docs/pva.pdf" target="_blank"><i class="fas fa-download mr-0.5 mb-0.5"></i> Plan van Aanpak</a>
+          </li>
+          <li class="stage-document fade-in" animation-delay="1.2">
+            <a href="/docs/realisatie.pdf" target="_blank"><i class="fas fa-download mr-0.5 mb-0.5"></i> Realisatie document</a>
+          </li>
+          <li class="stage-document fade-in" animation-delay="1.4">
+            <a href="/docs/reflectie.pdf" target="_blank"><i class="fas fa-download mr-0.5 mb-0.5"></i> Reflectie document</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="about" class="container text-center | scroll-section">
+      <h2 class="slide-in" animation-delay="0">
+        <span>Over mij</span>
+      </h2>
+
+      <!-- Small -->
+      <div class="carousel display-none-lg fade-in" animation-delay="0.5">
+        <ul class="carousel-body">
+          <li class="carousel-element active">
+            <div class="carousel-card">
+              <div class="card card-full">
+                <div class="card-body text-center last-to-bottom">
+                  <div class="thumbnail-container">
+                    <img class="thumbnail circle" src="/img/profile-picture.webp" alt="profiel foto" onerror="this.onerror=null; this.src='/img/profile-picture.jpg'">
+                  </div>
+                  <p class="fs-32 bold">
+                    Johan Torfs
+                  </p>
+                  <p class="mb-1 text-container">
+                    Ik ben iemand die veel verschillende hobby's heeft gehad. Daardoor heb ik veel ervaring, vaardigheden en kennis opgedaan op verschillende gebieden.
+                  </p>
+                  <p>
+                    <a class="underline" href="/docs/cv.pdf" target="_blank"><i class="fas fa-download mr-0.5 mb-0.5"></i> Download mijn CV</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="carousel-element">
+            <div class="carousel-card">
+              <div class="card card-full">
+                <div class="card-body">
+                  <p class="mb-2 text-container">
+                    <span class="bold fs-24">Uiteindelijk </span>
+                    merkte ik dat één van die vaardigheden er boven de andere uitsprong. Met een beetje hulp van de mensen om me heen merkte ik mijn passie op voor web development.
+                  </p>
+                  <p class="mb-2 text-container">
+                    <span class="bold fs-24">Van september 2020 tot juni 2023 </span>
+                    was ik student aan Thomas More in Geel. Ik heb hier veel bijgeleerd en heb uiteindelijk gekozen voor Application Development als afstudeer richting.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="carousel-element">
+            <div class="carousel-card">
+              <div class="card card-full">
+                <div class="card-body last-to-bottom">
+                  <p class="mb-2 text-container"><span class="bold fs-24">Als vrijwilliger </span>werk ik al enkele jaren bij het Rode Kruis. Mensen kunnen zo dankbaar zijn voor zelfs het kleinste gebaar e ndat is ook waarom ik mezelf met plezier kan blijven inzetten.</p>
+                  <p>
+                    <img class="thumbnail" src="/img/redcross.svg" alt="logo rode kruis belgië">
+                  </p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="carousel-element">
+            <div class="carousel-card">
+              <div class="card card-full">
+                <div class="card-body">
+                  <p>
+                    <img class="thumbnail mb-4" src="/img/coderdojo.webp" alt="logo coderdojo" onerror="this.onerror=null; this.src='/img/coderdojo.jpg'">
+                  </p>
+                  <p class="mb-2 text-container"><span class="bold fs-24">Als coach </span>bij CoderDojo krijg ik de kans om kinderen te helpen hun passie voor IT, al vanop jonge leeftijd, te ontdekken.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="carousel-element">
+            <div class="carousel-card">
+              <div class="card card-full">
+                <div class="card-body">
+                  <p class="mb-2 text-container"><span class="bold fs-24">Vaardigheden </span>kan je altijd bijleren. Nooit stoppen met leren is de mentaliteit waar ik mee in het leven sta.
+                  </p>
+                  <p class="mb-2 text-container">
+                    Toch zijn er enkele frameworks waar ik al meer ervaring in heb.
+                  </p>
+                  <ul class="bullets">
+                    <li>HTML/CSS/Javascript</li>
+                    <li>PHP - Laravel</li>
+                    <li>Python</li>
+                    <li>Java - Maven/Spring</li>
+                    <li>C# - Unity</li>
+                    <li>C# - ASP.NET</li>
+                    <li>React</li>
+                    <li>Angular</li>
+                    <li>NestJS</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="carousel-element">
+            <div class="carousel-card">
+              <div class="card card-full">
+                <div class="card-body">
+                  <ul class="social-links">
+                    <li class="mail">
+                      <a href="mailto:j.t.johan.torfs@gmail.com" target="_blank"><i class="fas fa-envelope"></i> <span>Mail</span></a>
+                    </li>
+                    <li class="github">
+                      <a href="https://github.com/Johan-torfs" target="_blank"><i class="fab fa-github"></i> <span>Github</span></a>
+                    </li>
+                    <li class="linkedin">
+                      <a href="https://www.linkedin.com/in/johan-torfs-375881184/" target="_blank"><i class="fab fa-linkedin"></i> <span>LinkedIn</span></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="carousel-footer fade-in" animation-delay="1">
+          <button class="carousel-indicator active"></button>
+          <button class="carousel-indicator"></button>
+          <button class="carousel-indicator"></button>
+          <button class="carousel-indicator"></button>
+          <button class="carousel-indicator"></button>
+          <button class="carousel-indicator"></button>
+        </div>
+      </div>
+
+      <!-- Large -->
+      <div class="about-grid display-grid-lg">
+        <div class="item1 fade-in" animation-delay="0.5">
+          <div class="item ilast-to-bottom fade-in">
+            <div class="thumbnail-container">
+              <img class="thumbnail circle" src="/img/profile-picture.webp" alt="profiel foto" onerror="this.onerror=null; this.src='/img/profile-picture.jpg'">
+            </div>
+            <p class="fs-32 bold">
+              Johan Torfs
+            </p>
+            <p>
+              <a class="underline" href="/docs/cv.pdf" target="_blank"><i class="fas fa-download mr-0.5 mb-0.5"></i> Download mijn CV</a>
+            </p>
+          </div>
+        </div>
+        <div class="item2 fade-in" animation-delay="1">
+          <div class="item">
+            <p class="mb-2 text-container">
+              Ik ben iemand die veel verschillende hobby's heeft gehad. Daardoor heb ik veel ervaring, vaardigheden en kennis opgedaan op verschillende gebieden.
+            </p>
+            <p class="mb-2 text-container">
+              Uiteindelijk merkte ik dat één van die vaardigheden er boven de andere uitsprong. Met een beetje hulp van de mensen om me heen merkte ik mijn passie op voor web development.
+            </p>
+            <p class="mb-2 text-container">
+              Van september 2020 tot juni 2023 was ik student aan Thomas More in Geel. Ik heb hier veel bijgeleerd en heb uiteindelijk gekozen voor Application Development als afstudeer richting.
+            </p>
+          </div>
+        </div>
+        <div class="item3 fade-in" animation-delay="3">
+          <div class="item">
+            <p class="mb-2 text-container"><span class="bold fs-24">Vaardigheden </span>kan je altijd bijleren. Nooit stoppen met leren is de mentaliteit waar ik mee in het leven sta.
+            </p>
+            <p class="mb-2 text-container">
+              Toch zijn er enkele frameworks waar ik al meer ervaring in heb.
+            </p>
+            <ul class="bullets">
+              <li>HTML/CSS/Javascript</li>
+              <li>PHP - Laravel</li>
+              <li>Python</li>
+              <li>Java - Maven/Spring</li>
+              <li>C# - Unity</li>
+              <li>C# - ASP.NET</li>
+              <li>React</li>
+              <li>Angular</li>
+              <li>NestJS</li>
+            </ul>
+          </div>
+        </div>
+        <div class="item4 fade-in" animation-delay="1.5">
+          <div class="item">
+            <div class="about-row mb-2">
+              <p class="text-container">
+                <span class="bold fs-24">Als vrijwilliger </span>werk ik al enkele jaren bij het Rode Kruis. Mensen kunnen zo dankbaar zijn voor zelfs het kleinste gebaar e ndat is ook waarom ik mezelf met plezier kan blijven inzetten.
+              </p>
+              <img class="thumbnail" src="/img/redcross.svg" alt="logo rode kruis belgië" width="200px">
+            </div>
+            <div class="about-row">
+              <img class="thumbnail" src="/img/coderdojo.webp" alt="logo coderdojo" onerror="this.onerror=null; this.src='/img/coderdojo.jpg'" width="200px">
+              <p class="text-container"><span class="bold fs-24">Als coach </span>bij CoderDojo krijg ik de kans om kinderen te helpen hun passie voor IT, al vanop jonge leeftijd, te ontdekken.</p>
+            </div>
+          </div>
+        </div>
+        <div class="item5 fade-in" animation-delay="2">
+          <div class="item">
+            <ul class="social-links">
+              <li class="mail">
+                <a href="mailto:j.t.johan.torfs@gmail.com" target="_blank"><i class="fas fa-envelope"></i> <span>Mail</span></a>
+              </li>
+              <li class="github">
+                <a href="https://github.com/Johan-torfs" target="_blank"><i class="fab fa-github"></i> <span>Github</span></a>
+              </li>
+              <li class="linkedin">
+                <a href="https://www.linkedin.com/in/johan-torfs-375881184/" target="_blank"><i class="fab fa-linkedin"></i> <span>LinkedIn</span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
