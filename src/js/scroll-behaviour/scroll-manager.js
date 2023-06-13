@@ -148,7 +148,7 @@ async function runScrollManager() {
 
 function updateScrollPosition() {
     sections.forEach((section, index) => {
-        if (section.getBoundingClientRect().top < window.innerHeight && section.getBoundingClientRect().top >= 0) {
+        if (section.getBoundingClientRect().top < window.innerHeight/2 && section.getBoundingClientRect().top >= 0) {
             currentSection = index;
         }
     });
