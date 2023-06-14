@@ -438,7 +438,7 @@ a:hover {
   
   display: flex;
   flex-wrap: nowrap;
-  gap: 2rem;
+  gap: 32px;
 
   width: calc(var(--container-width) - (2 * var(--container-padding)));
   cursor: grab;
