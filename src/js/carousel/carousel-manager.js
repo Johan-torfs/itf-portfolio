@@ -8,7 +8,7 @@ var mouseDown = false;
 const MIN_SWIPE_DISTANCE = 100;
 const MARGIN = {
     "xsmall": 32,
-    "small": 128,
+    "small": 96,
     "large": 128,
 }
 
@@ -168,11 +168,13 @@ function setIndicator(carousel, position) {
 }
 
 function setElements(carousel, position) {
-    carousel.elements.forEach(indicator => {
-        indicator.classList.remove('active');
+    carousel.elements.forEach(element => {
+        element.classList.remove('active');
+        element.setAttribute('aria-hidden', 'true');
     });
 
     carousel.elements[position].classList.add('active');
+    carousel.elements[position].setAttribute('aria-hidden', 'false');
 }
 
 function lerpCarouselPosition(carousel, startX, endX, time, intervals) {

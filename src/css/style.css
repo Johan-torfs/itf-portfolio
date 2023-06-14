@@ -46,7 +46,7 @@ button {
   line-height: 1.5;
   font-weight: 400;
   font-style: normal;
-  font-size: 16px;
+  font-size: clamp(12px, 0.8vw, 16px);
 
   color: var(--color-text);
   background-image: radial-gradient(
@@ -625,6 +625,11 @@ a:hover {
   border: 1px solid var(--color-gray-dark);
 }
 
+.stage-container .stage-content .face img {
+  max-height: 100%;
+  object-fit: cover;
+}
+
 .last-to-bottom > p:nth-last-of-type(2) {
   flex-grow: 1;
 }
@@ -943,7 +948,7 @@ img.circle {
 }
 
 .about-row img{
-  width: 170px;
+  width: min(8vw, 170px);
   margin: 1rem;
 }
 
@@ -1001,7 +1006,7 @@ img.circle {
   }
 
   .carousel .carousel-body {
-    gap: 8rem;
+    gap: 96px;
   }
 
   .card {
@@ -1039,6 +1044,10 @@ img.circle {
   :root {
     --container-width: 1320px;
     --container-padding: 0rem;
+  }
+
+  .carousel .carousel-body {
+    gap: 128px;
   }
 
   .display-block-lg {
