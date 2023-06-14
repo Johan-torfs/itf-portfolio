@@ -961,6 +961,10 @@ img.circle {
   display: none;
 }
 
+.display-block {
+  display: block;
+}
+
 /* Media queries */
 @media (min-width: 768px) {
   :root {
